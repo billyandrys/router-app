@@ -5,6 +5,12 @@ import NoutFound from "../pages/NoutFound"
 import PageHome from "../pages/PageHome"
 import ProfilePage from "../components/ProfilePage"
 import CatergoryPage from "../pages/CatergoryPage"
+import LoginPage from "../pages/LoginPage"
+import RegisterPage from "../pages/RegisterPage"
+import DashboardPage from "../pages/DashboardPage"
+import PaymentsPage from "../pages/PaymentsPage"
+import PrivateRoute from "./PrivateRoute"
+import { Redirect } from "react-router-dom"
 export default function AppRouter() {
   return (
     <Router>
@@ -19,12 +25,18 @@ export default function AppRouter() {
         <Route exact path="/">
             <PageHome/>
         </Route>
-       
         <Route exact path="/profile/:username" component={ProfilePage}/>
+        <Route exact path="/categories" component={CatergoryPage}/>    
+        <Route exact path="/signin">
+                <Redirect to='login'/>
+        </Route>   
+         <Route exact path="/login" component={LoginPage}/>
+        <Route exact path="/registre" component={RegisterPage}/>
+        <Route exact path="/dashboard" component={DashboardPage}/>
+        <PrivateRoute exact  path='/payments' component={PaymentsPage}/>
+        <Route path="*" component={NoutFound}/>
 
-        <Route exact path="/categories" component={CatergoryPage}/>        <Route path="*">
-            <NoutFound/>
-        </Route>
+        
     </Switch> 
     </Router>
   )
