@@ -1,16 +1,27 @@
+import { paste } from '@testing-library/user-event/dist/paste'
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 
 export default function CatergoryPage() {
     const location = useLocation()
+    const history = useHistory()
     
     const query = new URLSearchParams(location.search)
-    const skip = query.get('skip') || 0
-    const limit = query.get('limit') || 15
-    console.log()
+    const skip = parseInt(query.get('skip')) || 0
+    const limit = parseInt(query.get('limit')) || 15
+    console.log(`${limit}  ${skip}`)
+    const handleNext =()=>{
+      query.set('skip', skip + limit)
+     
+      history.push({search:query.toString()})
+    }
     
   return (
-    <div>CatergoryPage</div>
+    <div>
+      <h1>{query.get('limit')}</h1>
+      <h2>{skip}</h2>
+      <button onClick={handleNext}>Next</button>
+    </div>
   )
 }
 
