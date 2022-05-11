@@ -28,7 +28,7 @@ export default function AppRouter() {
         <Route exact path="/profile/:username" component={ProfilePage}/>
         <Route exact path="/categories" component={CatergoryPage}/>    
         <Route exact path="/signin">
-                <Redirect to='login'/>
+                <Redirect to='login'/> 
         </Route>   
          <Route exact path="/login" component={LoginPage}/>
         <Route exact path="/registre" component={RegisterPage}/>
