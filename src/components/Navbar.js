@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import useAuth from '../auth/useAuth'
 
 export default function Navbar() {
+    const auth = useAuth()
   return (
     <nav>
         <ul>
@@ -16,18 +18,20 @@ export default function Navbar() {
             </li>
             <li>
                 <NavLink  activeClass='active' to='/Categories'>Categories</NavLink>
-                <li>
+            </li>
                 <NavLink  activeClass='active' to='/login'>login</NavLink>
+            <li>
+             <NavLink  activeClass='active' to='/registre'>registre</NavLink>
             </li>
             <li>
-                <NavLink  activeClass='active' to='/registre'>registre</NavLink>
+                <NavLink  activeClass='active' to='/dashboard'>Dashboard</NavLink>
             </li>
+            
             <li>
-                <NavLink  activeClass='active' to='/Dashboard'>Dashboard</NavLink>
-            </li>
-            <li>
-                <NavLink  activeClass='active' to='/payments'>payments</NavLink>
-            </li>
+            <button onClick={auth.logout}>
+                    logou
+            </button>
+                
             </li>
             
         </ul>

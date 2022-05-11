@@ -7,7 +7,7 @@ import ProfilePage from "../components/ProfilePage"
 import CatergoryPage from "../pages/CatergoryPage"
 import LoginPage from "../pages/LoginPage"
 import RegisterPage from "../pages/RegisterPage"
-import DashboardPage from "../pages/DashboardPage"
+import DashboardPage from '../pages/DashboardPage'
 import PaymentsPage from "../pages/PaymentsPage"
 import PrivateRoute from "./PrivateRoute"
 import { Redirect } from "react-router-dom"
@@ -32,8 +32,8 @@ export default function AppRouter() {
         </Route>   
          <Route exact path="/login" component={LoginPage}/>
         <Route exact path="/registre" component={RegisterPage}/>
-        <Route exact path="/dashboard" component={DashboardPage}/>
-        <PrivateRoute exact  path='/payments' component={PaymentsPage}/>
+        
+        <PrivateRoute exact path='/dashboard' component={DashboardPage}/>
         <Route path="*" component={NoutFound}/>
 
         

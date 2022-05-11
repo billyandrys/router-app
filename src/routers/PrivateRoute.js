@@ -4,12 +4,14 @@ import useAuth from "../auth/useAuth";
 
 //const user = null
 //const user = { id:1 , userName: 'Raul'}
-
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const auth = useAuth()
+  console.log(auth.user)
+  
   return <Route {...rest}>
-    {auth.isLogged() ? <Component /> : <Redirect to="login" />}
+    {auth.user ? (<Component/>) : (<Redirect to="login" />)}
+    <Component/>
   </Route>
-};
+}
 
 export default PrivateRoute;
