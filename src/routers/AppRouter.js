@@ -11,6 +11,7 @@ import DashboardPage from '../pages/DashboardPage'
 import PaymentsPage from "../pages/PaymentsPage"
 import PrivateRoute from "./PrivateRoute"
 import { Redirect } from "react-router-dom"
+import PublicRoute from "./PublicRoute"
 export default function AppRouter() {
   return (
     <Router>
@@ -30,8 +31,8 @@ export default function AppRouter() {
         <Route exact path="/signin">
                 <Redirect to='login'/> 
         </Route>   
-         <Route exact path="/login" component={LoginPage}/>
-        <Route exact path="/registre" component={RegisterPage}/>
+         <PublicRoute exact path="/login" component={LoginPage}/>
+        <PublicRoute exact path="/registre" component={RegisterPage}/>
         
         <PrivateRoute exact path='/dashboard' component={DashboardPage}/>
         <PrivateRoute exact path='/payments' component={PaymentsPage}/>
