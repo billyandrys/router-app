@@ -16,7 +16,7 @@ export default function AuthProvider({children}) {
         logout(){
              setUser(null)
         },
-        isLogged(){
+        islogged(){
             return !!user
         }
 

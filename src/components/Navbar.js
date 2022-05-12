@@ -26,7 +26,9 @@ export default function Navbar() {
             <li>
                 <NavLink  activeClass='active' to='/dashboard'>Dashboard</NavLink>
             </li>
-            
+            <li>
+                <NavLink  activeClass='active' to='/payments'>payments</NavLink>
+            </li>
             <li>
             <button onClick={auth.logout}>
                     logou

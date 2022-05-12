@@ -34,6 +34,7 @@ export default function AppRouter() {
         <Route exact path="/registre" component={RegisterPage}/>
         
         <PrivateRoute exact path='/dashboard' component={DashboardPage}/>
+        <PrivateRoute exact path='/payments' component={PaymentsPage}/>
         <Route path="*" component={NoutFound}/>
 
         

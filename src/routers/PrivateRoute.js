@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 import useAuth from "../auth/useAuth";
 
@@ -6,12 +7,19 @@ import useAuth from "../auth/useAuth";
 //const user = { id:1 , userName: 'Raul'}
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const auth = useAuth()
-  console.log(auth.user)
-  
-  return <Route {...rest}>
-    {auth.user ? (<Component/>) : (<Redirect to="login" />)}
-    <Component/>
-  </Route>
-}
+  const location = useLocation()
+ 
+
+  return (
+    <Route {...rest}>
+      {auth.islogged() ? (
+        <Component />
+      ) : (
+        <Redirect to={{ pathname: "/login", state: { from: location } }} />
+      )}
+      
+    </Route>
+  );
+};
 
 export default PrivateRoute;
