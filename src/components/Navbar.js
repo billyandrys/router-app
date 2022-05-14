@@ -23,18 +23,27 @@ export default function Navbar() {
             <li>
              <NavLink  activeClass='active' to='/registre'>registre</NavLink>
             </li>
+            
+            
             <li>
-                <NavLink  activeClass='active' to='/dashboard'>Dashboard</NavLink>
-            </li>
-            <li>
-                <NavLink  activeClass='active' to='/payments'>payments</NavLink>
-            </li>
-            <li>
-            <button onClick={auth.logout}>
-                    logou
-            </button>
+            
                 
             </li>
+            {auth.islogged() && (
+                <>
+                    <button onClick={auth.logout}>
+                        logou
+                    </button>
+                    <li>
+                        <NavLink  activeClass='active' to='/payments'>payments</NavLink>
+                    </li>
+                    <li>
+                        <NavLink  activeClass='active' to='/dashboard'>Dashboard</NavLink>
+                    </li>
+                </>
+            )
+            
+            }
             
         </ul>
     </nav>
